@@ -12,7 +12,6 @@ void them_san_pham( vector<Hanghoa>& san_pham){
     new_item.nhap();
     san_pham.push_back(new_item);
 }
-
 void xoa_san_pham(vector<Hanghoa>& san_pham){
     string ma_sp_xoa;
     cout << "Nhap ma san pham can xoa: ";
@@ -164,7 +163,7 @@ do{
     cout << "|  4.  Thoat                                                       |" << endl;
     cout << "|*________________________________________________________________*|" << endl;
     cout << "                                                                    " << endl;
-    cout << "Nhap lua chon cua ban [1-15]: ";
+    cout << "Nhap lua chon cua ban [1-5]: ";
     cin >> choice;
     switch(choice){
         case(1):
