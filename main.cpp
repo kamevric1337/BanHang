@@ -166,8 +166,6 @@ void giao_dien_thanh_toan(vector<Hanghoa>& danh_sach_san_pham, GioHang& quayThan
     int STT_xoa = -1;
     int STT_them = -1;
 
-
-
     system("cls");
     quayThanhToan.inGioHang();
     cout << "\n";
@@ -185,7 +183,7 @@ void giao_dien_thanh_toan(vector<Hanghoa>& danh_sach_san_pham, GioHang& quayThan
     switch (choice_)
     {
     case 1:
-        in_danh_sach_san_pham(danh_sach_san_pham);
+        in_danh_sach_san_pham(danh_sach_san_pham); // In danh sach san pham co san de nguoi dung biet 
         cout << "\nBan muon them san pham so bao nhieu: ";
         cin >> STT_them;
         quayThanhToan.themSanPham(danh_sach_san_pham[STT_them - 1]); // Them san pham co STT  tu danh sach vao gio hang
@@ -193,7 +191,7 @@ void giao_dien_thanh_toan(vector<Hanghoa>& danh_sach_san_pham, GioHang& quayThan
         giao_dien_thanh_toan(danh_sach_san_pham, quayThanhToan); // quay lai giao dien thanh toan
         break;
     case 2:
-        quayThanhToan.inGioHang();
+        quayThanhToan.inGioHang(); // in san pham dang co trong gio hang
         cout << "\nBan muon xoa san pham so bao nhieu: ";
         cin >> STT_xoa;
         quayThanhToan.xoaSanPham(STT_xoa - 1); // Xoa san pham co STT STT ra khoi gio hang
@@ -296,6 +294,19 @@ int main()
     Hanghoa sanpham3("caPheSua", "CPH0003", 5000);  danh_sach_san_pham.push_back(sanpham3);
     Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000); danh_sach_san_pham.push_back(sanpham4);
     Hanghoa sanpham5("caPheTrung", "CPH0005", 8000);  danh_sach_san_pham.push_back(sanpham5);
+    Hanghoa sanpham6("Chocolate Bar","FB2101", 2000);  danh_sach_san_pham.push_back(sanpham6);
+    Hanghoa sanpham7("Granola","FB2201", 5000);  danh_sach_san_pham.push_back(sanpham7);
+    Hanghoa sanpham8("Greek Yogurt","FB2401", 3000);  danh_sach_san_pham.push_back(sanpham8);
+    Hanghoa sanpham9("Pasta","FB2601", 4000);  danh_sach_san_pham.push_back(sanpham9);
+    Hanghoa sanpham10("Canned Tuna","FB2801", 3500);  danh_sach_san_pham.push_back(sanpham10);
+    Hanghoa sanpham11("Green Tea","FB3001", 6000);  danh_sach_san_pham.push_back(sanpham11);
+    Hanghoa sanpham12("Olive Oil","FB2701", 15000);  danh_sach_san_pham.push_back(sanpham12);
+    Hanghoa sanpham13("Coconut Milk","FB3901", 4500);  danh_sach_san_pham.push_back(sanpham13);
+    Hanghoa sanpham14("Tomato Sauce","FB3701", 3000);  danh_sach_san_pham.push_back(sanpham14);
+    Hanghoa sanpham15("Instant Noodles","FB3301", 1500);  danh_sach_san_pham.push_back(sanpham15);
+    Hanghoa sanpham16("Peanut Butter","FB3101", 4500);  danh_sach_san_pham.push_back(sanpham16);
+    Hanghoa sanpham17("Pho Noodles","VF5101", 3500);  danh_sach_san_pham.push_back(sanpham17);
+
 
     giao_dien_chinh(danh_sach_san_pham, quayThanhToan); 
 }
