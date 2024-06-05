@@ -1,4 +1,3 @@
-#pragma once
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -160,7 +159,7 @@ void giao_dien_chinh_sua( vector<Hanghoa>& san_pham){
     
 }
 
-void giao_dien_thanh_toan(vector<Hanghoa>& san_pham, GioHang& quayThanhToan)
+void giao_dien_thanh_toan(vector<Hanghoa>& danh_sach_san_pham, GioHang& quayThanhToan)
 {
     int choice_;
     double phanTram = 0;
@@ -186,12 +185,12 @@ void giao_dien_thanh_toan(vector<Hanghoa>& san_pham, GioHang& quayThanhToan)
     switch (choice_)
     {
     case 1:
-        in_danh_sach_san_pham(san_pham);
+        in_danh_sach_san_pham(danh_sach_san_pham);
         cout << "\nBan muon them san pham so bao nhieu: ";
         cin >> STT_them;
-        quayThanhToan.themSanPham(san_pham[STT_them - 1]); // Them san pham co STT  tu danh sach vao gio hang
+        quayThanhToan.themSanPham(danh_sach_san_pham[STT_them - 1]); // Them san pham co STT  tu danh sach vao gio hang
         quayThanhToan.inGioHang();
-        giao_dien_thanh_toan(san_pham, quayThanhToan); // quay lai giao dien thanh toan
+        giao_dien_thanh_toan(danh_sach_san_pham, quayThanhToan); // quay lai giao dien thanh toan
         break;
     case 2:
         quayThanhToan.inGioHang();
@@ -199,7 +198,7 @@ void giao_dien_thanh_toan(vector<Hanghoa>& san_pham, GioHang& quayThanhToan)
         cin >> STT_xoa;
         quayThanhToan.xoaSanPham(STT_xoa - 1); // Xoa san pham co STT STT ra khoi gio hang
         quayThanhToan.inGioHang();
-        giao_dien_thanh_toan(san_pham, quayThanhToan); // quay lai giao dien thanh toan
+        giao_dien_thanh_toan(danh_sach_san_pham, quayThanhToan); // quay lai giao dien thanh toan
         break;
     case 3:
         cout << "\nNhap ti le giam gia: ";
@@ -289,5 +288,14 @@ int main()
 {
     GioHang quayThanhToan;
     vector<Hanghoa> danh_sach_san_pham;
+    //giao_dien_chinh(danh_sach_san_pham, quayThanhToan); 
+
+    // mot vai test sample
+    Hanghoa sanpham1("caPheDen", "CPH0001", 5000); danh_sach_san_pham.push_back(sanpham1);
+    Hanghoa sanpham2("caPheNau", "CPH0002", 5000);  danh_sach_san_pham.push_back(sanpham2);
+    Hanghoa sanpham3("caPheSua", "CPH0003", 5000);  danh_sach_san_pham.push_back(sanpham3);
+    Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000); danh_sach_san_pham.push_back(sanpham4);
+    Hanghoa sanpham5("caPheTrung", "CPH0005", 8000);  danh_sach_san_pham.push_back(sanpham5);
+
     giao_dien_chinh(danh_sach_san_pham, quayThanhToan); 
 }

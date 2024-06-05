@@ -1,5 +1,9 @@
 #include"HangHoa.h"
 
+Hanghoa::Hanghoa()
+{
+
+}
 Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh)
 {
     this->san_pham = sanPham;
@@ -38,7 +42,7 @@ void Hanghoa::nhap(){
     cin >> gia_thanh;
 }
 void Hanghoa::xuat(){
-    cout << setw(34) << san_pham << setw(34) << ma_san_pham << gia_thanh << endl;
+    cout << "      " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << endl;
 }
 
 void Hanghoa::sua_san_pham(vector<Hanghoa>& san_pham){
