@@ -1,5 +1,11 @@
 #include"HangHoa.h"
 
+Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh)
+{
+    this->san_pham = sanPham;
+    this->ma_san_pham = maSanPham;
+    this->gia_thanh = giaThanh;
+}
 
 double Hanghoa::lay_gia_thanh(){
     return gia_thanh;

@@ -14,6 +14,7 @@ class Hanghoa{
         string ma_san_pham;
         double gia_thanh;
     public:
+        Hanghoa(string, string, double);
         // void giao_dien_tim_kiem();
         // void giao_dien_chinh();
         // void them_san_pham();
