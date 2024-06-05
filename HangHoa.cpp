@@ -34,17 +34,13 @@ void Hanghoa::nhap(){
 void Hanghoa::xuat(){
     cout << setw(34) << san_pham << setw(34) << ma_san_pham << gia_thanh << endl;
 }
-void them_san_pham( vector<Hanghoa>& san_pham){
-    Hanghoa sp;
-    sp.nhap();
-    san_pham.push_back(sp);
-}
+
 void Hanghoa::sua_san_pham(vector<Hanghoa>& san_pham){
     string masp;
     cout << "nhap ma so cua san pham can sua:";
     getline(cin,masp);
-    for(auto& hanghoa:san_pham){
-        if(hanghoa.lay_ma_don_hang()==masp){
+    for(int i = 0; i < san_pham.size(); i++){
+        if(san_pham[i].lay_ma_don_hang() == masp){
         string ten;
         string ma;
         double gia;
@@ -55,15 +51,11 @@ void Hanghoa::sua_san_pham(vector<Hanghoa>& san_pham){
         getline(cin,ma);
         cout << "\nNhap gia thanh san pham moi: ";
         cin >> gia;
-        hanghoa.setTensp(ten);
-        hanghoa.setMasp(ma);
-        hanghoa.setGiasp(gia);
+        san_pham[i].setTensp(ten);
+        san_pham[i].setMasp(ma);
+        san_pham[i].setGiasp(gia);
         }
     }
-void xoa_san_pham(vector<Hanghoa>& san_pham){
-    string ma_sp_xoa;
-    cout << "Nhap ma san pham can xoa: ";
-    getline(cin,ma_sp_xoa);
-    
 }
-}
+
+

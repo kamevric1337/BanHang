@@ -23,7 +23,7 @@ class Hanghoa{
         void setMasp(string ma);
         void setGiasp(double gia);
         // void xoa_san_pham();
-        // void sua();
+        void sua_san_pham(vector<Hanghoa>&);
         // void tim_kiem();
         // void xuat_file();
         // void giao_dien_chinh_sua();
