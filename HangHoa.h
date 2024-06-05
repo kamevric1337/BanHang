@@ -19,6 +19,9 @@ class Hanghoa{
         // void them_san_pham();
         void nhap();
         void xuat();
+        void setTensp(string tensp);
+        void setMasp(string ma);
+        void setGiasp(double gia);
         // void xoa_san_pham();
         // void sua();
         // void tim_kiem();

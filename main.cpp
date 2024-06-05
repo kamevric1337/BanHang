@@ -12,7 +12,6 @@ void them_san_pham( vector<Hanghoa>& san_pham){
     new_item.nhap();
     san_pham.push_back(new_item);
 }
-
 void xoa_san_pham(vector<Hanghoa>& san_pham){
     string ma_sp_xoa;
     cout << "Nhap ma san pham can xoa: ";
@@ -164,7 +163,7 @@ do{
     cout << "|  4.  Thoat                                                       |" << endl;
     cout << "|*________________________________________________________________*|" << endl;
     cout << "                                                                    " << endl;
-    cout << "Nhap lua chon cua ban [1-15]: ";
+    cout << "Nhap lua chon cua ban [1-5]: ";
     cin >> choice;
     switch(choice){
         case(1):
@@ -197,7 +196,25 @@ do{
 }
 
 // void Hanghoa::tim_kiem(){}
-void /*Hanghoa::*/xuat_file(vector<Hanghoa> san_pham){}
+void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
+    ifstream file("/home/hoangtung/Documents/giay.txt");
+    if (!file.is_open()) {
+        cout << "Không thể mở file!" << endl;
+    }
+    string line;
+    int dem_vec = 0;
+    // san_pham.size();
+    while(getline(file,line)){
+        istringstream iss(line);
+        iss >>  ;
+        string ten {};
+        string ma {};
+        double gia {};
+        new Hanghoa a {ten , ma, gia};
+        san_pham.push_back(san_pham[dem_vec]);
+        dem_vec++;
+    }
+}
 
 int main()
 {
