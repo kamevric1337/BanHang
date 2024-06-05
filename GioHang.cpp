@@ -16,22 +16,17 @@ void GioHang::capNhatTienThanhToan()
 
 }
 
-void GioHang::themSanPham()
+void GioHang::themSanPham(Hanghoa sanPham)
 {
-    Hanghoa sanPham;
-    sanPham.nhap();
     this->gioHang.push_back(sanPham);
 
-    this->soLuongHang++;
-    capNhatTienThanhToan();
+    this->soLuongHang--;
+    this->capNhatTienThanhToan();
 }
 
-void GioHang::xoaSanPham()
+void GioHang::xoaSanPham(int index)
 {
-    int STT;
-    std::cout << "\nNhap STT cua san pham muon xoa: ";
-    std::cin >> STT;
-    this->gioHang.erase(gioHang.begin() + STT - 1);
+    this->gioHang.erase(gioHang.begin() + index);
 
     this->soLuongHang--;
     capNhatTienThanhToan();
@@ -39,6 +34,7 @@ void GioHang::xoaSanPham()
 
 void GioHang::inGioHang()
 {
+    std::cout << "\n<------------------Gio hang cua ban---------------->";
     for(int i = 0; i < gioHang.size(); i++)
     {
         std::cout << "\n" << i + 1 << ". ";
@@ -54,4 +50,9 @@ double GioHang::layTienThanhToan()
 void GioHang::apMaGiamGia(double phanTram)
 {
     this->tienThanhToan *= (1 - phanTram/100);
+}
+
+GioHang::~GioHang()
+{
+    
 }
