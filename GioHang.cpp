@@ -41,7 +41,7 @@ void GioHang::inGioHang()
 {
     for(int i = 0; i < gioHang.size(); i++)
     {
-        std::cout << "\n";
+        std::cout << "\n" << i + 1 << ". ";
         this->gioHang[i].xuat();
     }
 }
