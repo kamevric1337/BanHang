@@ -27,8 +27,27 @@ void xoa_san_pham(vector<Hanghoa>& san_pham){
     getline(cin,ma_sp_xoa);
     
 }
-void sua(vector<Hanghoa>& san_pham){
-
+void sua_san_pham(vector<Hanghoa>& san_pham){
+    string masp;
+    cout << "nhap ma so cua san pham can sua:";
+    getline(cin,masp);
+    for(int i = 0; i < san_pham.size(); i++){
+        if(san_pham[i].lay_ma_don_hang() == masp){
+        string ten;
+        string ma;
+        double gia;
+         cout << "Nhap thong tin san pham moi: ";
+        cout << "\nNhap ten san pham moi: ";
+        getline(cin,ten);
+        cout << "\nNhap ma san pham moi: ";
+        getline(cin,ma);
+        cout << "\nNhap gia thanh san pham moi: ";
+        cin >> gia;
+        san_pham[i].setTensp(ten);
+        san_pham[i].setMasp(ma);
+        san_pham[i].setGiasp(gia);
+        }
+    }
 }
 void swap(Hanghoa a, Hanghoa b){
     Hanghoa temp;
@@ -148,7 +167,7 @@ void giao_dien_chinh_sua( vector<Hanghoa>& san_pham){
                 xoa_san_pham(san_pham);
                 break;
             case (3):
-                sua(san_pham);
+                sua_san_pham(san_pham);
                 break;
             case (4):
                 break;
