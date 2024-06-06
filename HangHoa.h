@@ -13,6 +13,7 @@ class Hanghoa{
         string san_pham;
         string ma_san_pham;
         double gia_thanh;
+        int so_luong;
     public:
         Hanghoa();
         Hanghoa(string, string, double);
@@ -32,4 +33,5 @@ class Hanghoa{
         string lay_ma_don_hang();
         string lay_ten_san_pham();
         double lay_gia_thanh();
+        int lay_so_luong();
 };

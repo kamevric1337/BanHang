@@ -22,7 +22,11 @@ string Hanghoa:: lay_ten_san_pham(){
 }
 string Hanghoa::lay_ma_don_hang(){
     return ma_san_pham;
- }
+}
+int Hanghoa::lay_so_luong()
+{
+    return so_luong;
+}
 void Hanghoa::setTensp(string tensp){
     san_pham=tensp;
 }
