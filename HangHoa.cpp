@@ -62,6 +62,8 @@ void Hanghoa::nhap(){
     getline(cin,ma_san_pham);
     cout << "\nNhap gia thanh san pham: ";
     cin >> gia_thanh;
+    cout << "\nNhap so luong san pham: ";
+    cin >> so_luong;
 }
 void Hanghoa::xuat(){
     cout << " " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << "VND     x" << so_luong <<  endl;
@@ -76,6 +78,7 @@ void Hanghoa::suaSanPham(vector<Hanghoa>& san_pham){
         string ten;
         string ma;
         double gia;
+        int soluong;
          cout << "Nhap thong tin san pham moi: ";
         cout << "\nNhap ten san pham moi: ";
         getline(cin,ten);
@@ -83,9 +86,12 @@ void Hanghoa::suaSanPham(vector<Hanghoa>& san_pham){
         getline(cin,ma);
         cout << "\nNhap gia thanh san pham moi: ";
         cin >> gia;
+        cout << "\nNhap so luong san pham: ";
+        cin >> soluong;
         san_pham[i].setTensp(ten);
         san_pham[i].setMasp(ma);
         san_pham[i].setGiasp(gia);
+        san_pham[i].setSoLuong(soluong);
         }
     }
 }

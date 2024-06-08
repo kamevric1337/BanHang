@@ -36,6 +36,7 @@ void sua_san_pham(vector<Hanghoa>& san_pham){
         string ten;
         string ma;
         double gia;
+        int soluong;
          cout << "Nhap thong tin san pham moi: ";
         cout << "\nNhap ten san pham moi: ";
         getline(cin,ten);
@@ -43,9 +44,12 @@ void sua_san_pham(vector<Hanghoa>& san_pham){
         getline(cin,ma);
         cout << "\nNhap gia thanh san pham moi: ";
         cin >> gia;
+        cout << "\nNhap so luong san pham: ";
+        cin >> soluong;
         san_pham[i].setTensp(ten);
         san_pham[i].setMasp(ma);
         san_pham[i].setGiasp(gia);
+        san_pham[i].setSoLuong(soluong);
         }
     }
 }
@@ -229,7 +233,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
         cin >> phanTram;
         quay_thanh_toan.apMaGiamGia(phanTram);
         quay_thanh_toan.inGioHang();
-        cout << "\nSo tien phai tra la: " << quay_thanh_toan.layTienThanhToan();
+        cout << "\nSo tien phai tra la: " << quay_thanh_toan.layTienThanhToan() << " VND";
         break;
     case 4:
         break;
