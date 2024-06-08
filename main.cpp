@@ -185,6 +185,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
     double phanTram = 0;
     int STT_xoa = -1;
     int STT_them = -1;
+    int so_luong = 1;
 
     system("cls");
     quay_thanh_toan.inGioHang();
@@ -207,6 +208,9 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
         inDanhSachSanPham(san_pham);
         cout << "\nBan muon them san pham so bao nhieu: ";
         cin >> STT_them;
+        cout << "\nNhap so luong muon mua cua san pham vua chon: ";
+        cin >> so_luong;
+        san_pham[STT_them-1].setSoLuong(so_luong);
         quay_thanh_toan.themSanPham(san_pham[STT_them - 1]); // Them san pham co STT  tu danh sach vao gio hang
         quay_thanh_toan.inGioHang();
         giaoDienThanhToan(san_pham, quay_thanh_toan); // quay lai giao dien thanh toan
@@ -312,23 +316,23 @@ int main()
 
 
     // mot vai test sample
-    Hanghoa sanpham1("caPheDen", "CPH0001", 5000); danh_sach_san_pham.push_back(sanpham1);
-    Hanghoa sanpham2("caPheNau", "CPH0002", 5000);  danh_sach_san_pham.push_back(sanpham2);
-    Hanghoa sanpham3("caPheSua", "CPH0003", 5000);  danh_sach_san_pham.push_back(sanpham3);
-    Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000); danh_sach_san_pham.push_back(sanpham4);
-    Hanghoa sanpham5("caPheTrung", "CPH0005", 8000);  danh_sach_san_pham.push_back(sanpham5);
-    Hanghoa sanpham6("Chocolate Bar","FB2101", 2000);  danh_sach_san_pham.push_back(sanpham6);
-    Hanghoa sanpham7("Granola","FB2201", 5000);  danh_sach_san_pham.push_back(sanpham7);
-    Hanghoa sanpham8("Greek Yogurt","FB2401", 3000);  danh_sach_san_pham.push_back(sanpham8);
-    Hanghoa sanpham9("Pasta","FB2601", 4000);  danh_sach_san_pham.push_back(sanpham9);
-    Hanghoa sanpham10("Canned Tuna","FB2801", 3500);  danh_sach_san_pham.push_back(sanpham10);
-    Hanghoa sanpham11("Green Tea","FB3001", 6000);  danh_sach_san_pham.push_back(sanpham11);
-    Hanghoa sanpham12("Olive Oil","FB2701", 15000);  danh_sach_san_pham.push_back(sanpham12);
-    Hanghoa sanpham13("Coconut Milk","FB3901", 4500);  danh_sach_san_pham.push_back(sanpham13);
-    Hanghoa sanpham14("Tomato Sauce","FB3701", 3000);  danh_sach_san_pham.push_back(sanpham14);
-    Hanghoa sanpham15("Instant Noodles","FB3301", 1500);  danh_sach_san_pham.push_back(sanpham15);
-    Hanghoa sanpham16("Peanut Butter","FB3101", 4500);  danh_sach_san_pham.push_back(sanpham16);
-    Hanghoa sanpham17("Pho Noodles","VF5101", 3500);  danh_sach_san_pham.push_back(sanpham17);
+    Hanghoa sanpham1("caPheDen", "CPH0001", 5000, 100); danh_sach_san_pham.push_back(sanpham1);
+    Hanghoa sanpham2("caPheNau", "CPH0002", 5000, 100);  danh_sach_san_pham.push_back(sanpham2);
+    Hanghoa sanpham3("caPheSua", "CPH0003", 5000, 100);  danh_sach_san_pham.push_back(sanpham3);
+    Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000, 100); danh_sach_san_pham.push_back(sanpham4);
+    Hanghoa sanpham5("caPheTrung", "CPH0005", 8000, 100);  danh_sach_san_pham.push_back(sanpham5);
+    Hanghoa sanpham6("Chocolate Bar","FB2101", 2000, 100);  danh_sach_san_pham.push_back(sanpham6);
+    Hanghoa sanpham7("Granola","FB2201", 5000, 100);  danh_sach_san_pham.push_back(sanpham7);
+    Hanghoa sanpham8("Greek Yogurt","FB2401", 3000, 100);  danh_sach_san_pham.push_back(sanpham8);
+    Hanghoa sanpham9("Pasta","FB2601", 4000, 100);  danh_sach_san_pham.push_back(sanpham9);
+    Hanghoa sanpham10("Canned Tuna","FB2801", 3500, 100);  danh_sach_san_pham.push_back(sanpham10);
+    Hanghoa sanpham11("Green Tea","FB3001", 6000, 100);  danh_sach_san_pham.push_back(sanpham11);
+    Hanghoa sanpham12("Olive Oil","FB2701", 15000, 100);  danh_sach_san_pham.push_back(sanpham12);
+    Hanghoa sanpham13("Coconut Milk","FB3901", 4500, 100);  danh_sach_san_pham.push_back(sanpham13);
+    Hanghoa sanpham14("Tomato Sauce","FB3701", 3000, 100);  danh_sach_san_pham.push_back(sanpham14);
+    Hanghoa sanpham15("Instant Noodles","FB3301", 1500, 100);  danh_sach_san_pham.push_back(sanpham15);
+    Hanghoa sanpham16("Peanut Butter","FB3101", 4500, 100);  danh_sach_san_pham.push_back(sanpham16);
+    Hanghoa sanpham17("Pho Noodles","VF5101", 3500, 100);  danh_sach_san_pham.push_back(sanpham17);
 
 
     giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 

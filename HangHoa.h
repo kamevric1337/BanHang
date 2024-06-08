@@ -19,6 +19,7 @@ class Hanghoa{
     public:
         Hanghoa();
         Hanghoa(string, string, double);
+        Hanghoa(string, string, double, int);
         // void giao_dien_tim_kiem();
         // void giao_dien_chinh();
         // void them_san_pham();
@@ -27,6 +28,7 @@ class Hanghoa{
         void setTensp(string tensp);
         void setMasp(string ma);
         void setGiasp(double gia);
+        void setSoLuong(int soLuong);
         // void xoa_san_pham();
         void suaSanPham(vector<Hanghoa>&);
         // void tim_kiem();
@@ -36,4 +38,5 @@ class Hanghoa{
         string layMaDonHang();
         string layTenSanPham();
         double layGiaThanh();
+        int laySoLuong();
 };

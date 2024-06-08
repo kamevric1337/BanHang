@@ -11,7 +11,7 @@ void GioHang::capNhatTienThanhToan()
     this->tienThanhToan = 0;
     for(int i = 0; i < this->gioHang.size();i++)
     {
-        tienThanhToan += gioHang[i].layGiaThanh();
+        tienThanhToan += gioHang[i].layGiaThanh() * gioHang[i].laySoLuong();
     }
 
 }
@@ -20,7 +20,7 @@ void GioHang::themSanPham(Hanghoa sanPham)
 {
     this->gioHang.push_back(sanPham);
 
-    this->soLuongHang--;
+    this->soLuongHang++;
     this->capNhatTienThanhToan();
 }
 

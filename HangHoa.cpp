@@ -11,6 +11,17 @@ Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh)
     this->gia_thanh = giaThanh;
 }
 
+Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh, int soLuong)
+{
+    this->san_pham = sanPham;
+    this->ma_san_pham = maSanPham;
+    this->gia_thanh = giaThanh;
+    this->so_luong = soLuong;
+}
+
+
+
+
 double Hanghoa::layGiaThanh(){
     return gia_thanh;
 }
@@ -24,6 +35,11 @@ string Hanghoa::layMaDonHang(){
     return ma_san_pham;
 }
 
+int Hanghoa::laySoLuong()
+{
+    return so_luong;
+}
+
 void Hanghoa::setTensp(string tensp){
     san_pham=tensp;
 }
@@ -32,6 +48,11 @@ void Hanghoa::setMasp(string ma){
 }
 void Hanghoa::setGiasp(double gia){
     gia_thanh=gia;
+}
+
+void Hanghoa::setSoLuong(int soLuong)
+{
+    so_luong = soLuong;
 }
 void Hanghoa::nhap(){
     cout << "Nhap thong tin san pham: ";
@@ -43,7 +64,7 @@ void Hanghoa::nhap(){
     cin >> gia_thanh;
 }
 void Hanghoa::xuat(){
-    cout << "      " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << endl;
+    cout << " " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << "VND     x" << so_luong <<  endl;
 }
 
 void Hanghoa::suaSanPham(vector<Hanghoa>& san_pham){
