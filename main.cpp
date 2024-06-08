@@ -1,4 +1,3 @@
-#pragma once
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -28,8 +27,27 @@ void xoaSanPham(vector<Hanghoa>& san_pham){
     getline(cin,ma_sp_xoa);
     
 }
-void sua(vector<Hanghoa>& san_pham){
-
+void sua_san_pham(vector<Hanghoa>& san_pham){
+    string masp;
+    cout << "nhap ma so cua san pham can sua:";
+    getline(cin,masp);
+    for(int i = 0; i < san_pham.size(); i++){
+        if(san_pham[i].layMaDonHang() == masp){
+        string ten;
+        string ma;
+        double gia;
+         cout << "Nhap thong tin san pham moi: ";
+        cout << "\nNhap ten san pham moi: ";
+        getline(cin,ten);
+        cout << "\nNhap ma san pham moi: ";
+        getline(cin,ma);
+        cout << "\nNhap gia thanh san pham moi: ";
+        cin >> gia;
+        san_pham[i].setTensp(ten);
+        san_pham[i].setMasp(ma);
+        san_pham[i].setGiasp(gia);
+        }
+    }
 }
 void swap(Hanghoa a, Hanghoa b){
     Hanghoa temp;
@@ -149,7 +167,7 @@ void giaoDienChinhSua( vector<Hanghoa>& san_pham){
                 xoaSanPham(san_pham);
                 break;
             case (3):
-                sua(san_pham);
+                sua_san_pham(san_pham);
                 break;
             case (4):
                 break;
@@ -160,14 +178,13 @@ void giaoDienChinhSua( vector<Hanghoa>& san_pham){
     
 }
 
+
 void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
 {
     int choice_;
     double phanTram = 0;
     int STT_xoa = -1;
     int STT_them = -1;
-
-
 
     system("cls");
     quay_thanh_toan.inGioHang();
@@ -186,6 +203,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
     switch (choice_)
     {
     case 1:
+
         inDanhSachSanPham(san_pham);
         cout << "\nBan muon them san pham so bao nhieu: ";
         cin >> STT_them;
@@ -200,6 +218,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
         quay_thanh_toan.xoaSanPham(STT_xoa - 1); // Xoa san pham co STT STT ra khoi gio hang
         quay_thanh_toan.inGioHang();
         giaoDienThanhToan(san_pham, quay_thanh_toan); // quay lai giao dien thanh toan
+
         break;
     case 3:
         cout << "\nNhap ti le giam gia: ";
@@ -289,5 +308,30 @@ int main()
 {
     GioHang quay_thanh_toan;
     vector<Hanghoa> danh_sach_san_pham;
+
+
+
+    // mot vai test sample
+    Hanghoa sanpham1("caPheDen", "CPH0001", 5000); danh_sach_san_pham.push_back(sanpham1);
+    Hanghoa sanpham2("caPheNau", "CPH0002", 5000);  danh_sach_san_pham.push_back(sanpham2);
+    Hanghoa sanpham3("caPheSua", "CPH0003", 5000);  danh_sach_san_pham.push_back(sanpham3);
+    Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000); danh_sach_san_pham.push_back(sanpham4);
+    Hanghoa sanpham5("caPheTrung", "CPH0005", 8000);  danh_sach_san_pham.push_back(sanpham5);
+    Hanghoa sanpham6("Chocolate Bar","FB2101", 2000);  danh_sach_san_pham.push_back(sanpham6);
+    Hanghoa sanpham7("Granola","FB2201", 5000);  danh_sach_san_pham.push_back(sanpham7);
+    Hanghoa sanpham8("Greek Yogurt","FB2401", 3000);  danh_sach_san_pham.push_back(sanpham8);
+    Hanghoa sanpham9("Pasta","FB2601", 4000);  danh_sach_san_pham.push_back(sanpham9);
+    Hanghoa sanpham10("Canned Tuna","FB2801", 3500);  danh_sach_san_pham.push_back(sanpham10);
+    Hanghoa sanpham11("Green Tea","FB3001", 6000);  danh_sach_san_pham.push_back(sanpham11);
+    Hanghoa sanpham12("Olive Oil","FB2701", 15000);  danh_sach_san_pham.push_back(sanpham12);
+    Hanghoa sanpham13("Coconut Milk","FB3901", 4500);  danh_sach_san_pham.push_back(sanpham13);
+    Hanghoa sanpham14("Tomato Sauce","FB3701", 3000);  danh_sach_san_pham.push_back(sanpham14);
+    Hanghoa sanpham15("Instant Noodles","FB3301", 1500);  danh_sach_san_pham.push_back(sanpham15);
+    Hanghoa sanpham16("Peanut Butter","FB3101", 4500);  danh_sach_san_pham.push_back(sanpham16);
+    Hanghoa sanpham17("Pho Noodles","VF5101", 3500);  danh_sach_san_pham.push_back(sanpham17);
+
+
     giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
+    
+
 }

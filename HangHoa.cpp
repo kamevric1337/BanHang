@@ -22,7 +22,8 @@ string Hanghoa:: layTenSanPham(){
 }
 string Hanghoa::layMaDonHang(){
     return ma_san_pham;
- }
+}
+
 void Hanghoa::setTensp(string tensp){
     san_pham=tensp;
 }
@@ -42,7 +43,7 @@ void Hanghoa::nhap(){
     cin >> gia_thanh;
 }
 void Hanghoa::xuat(){
-    cout << setw(34) << san_pham << setw(34) << ma_san_pham << gia_thanh << endl;
+    cout << "      " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << endl;
 }
 
 void Hanghoa::suaSanPham(vector<Hanghoa>& san_pham){
