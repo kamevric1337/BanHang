@@ -1,5 +1,9 @@
 #include"HangHoa.h"
 
+Hanghoa::Hanghoa()
+{
+
+}
 Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh)
 {
     this->san_pham = sanPham;
@@ -7,16 +11,16 @@ Hanghoa::Hanghoa(string sanPham, string maSanPham, double giaThanh)
     this->gia_thanh = giaThanh;
 }
 
-double Hanghoa::lay_gia_thanh(){
+double Hanghoa::layGiaThanh(){
     return gia_thanh;
 }
 // bool operator < (Hanghoa a, Hanghoa b){
 //     return a.lay_gia_thanh() < b.lay_gia_thanh(); 
 // }
-string Hanghoa:: lay_ten_san_pham(){
+string Hanghoa:: layTenSanPham(){
     return san_pham;
 }
-string Hanghoa::lay_ma_don_hang(){
+string Hanghoa::layMaDonHang(){
     return ma_san_pham;
  }
 void Hanghoa::setTensp(string tensp){
@@ -41,12 +45,12 @@ void Hanghoa::xuat(){
     cout << setw(34) << san_pham << setw(34) << ma_san_pham << gia_thanh << endl;
 }
 
-void Hanghoa::sua_san_pham(vector<Hanghoa>& san_pham){
+void Hanghoa::suaSanPham(vector<Hanghoa>& san_pham){
     string masp;
     cout << "nhap ma so cua san pham can sua:";
     getline(cin,masp);
     for(int i = 0; i < san_pham.size(); i++){
-        if(san_pham[i].lay_ma_don_hang() == masp){
+        if(san_pham[i].layMaDonHang() == masp){
         string ten;
         string ma;
         double gia;

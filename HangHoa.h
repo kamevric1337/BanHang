@@ -13,7 +13,9 @@ class Hanghoa{
         string san_pham;
         string ma_san_pham;
         double gia_thanh;
+        
     public:
+        Hanghoa();
         Hanghoa(string, string, double);
         // void giao_dien_tim_kiem();
         // void giao_dien_chinh();
@@ -24,11 +26,11 @@ class Hanghoa{
         void setMasp(string ma);
         void setGiasp(double gia);
         // void xoa_san_pham();
-        void sua_san_pham(vector<Hanghoa>&);
+        void suaSanPham(vector<Hanghoa>&);
         // void tim_kiem();
         // void xuat_file();
         // void giao_dien_chinh_sua();
-        string lay_ma_don_hang();
-        string lay_ten_san_pham();
-        double lay_gia_thanh();
+        string layMaDonHang();
+        string layTenSanPham();
+        double layGiaThanh();
 };
