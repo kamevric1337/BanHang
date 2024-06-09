@@ -87,7 +87,13 @@ void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){
     }
 }
 void sapXepTheoTen(vector<Hanghoa>& dssp){
-    
+    for (int i = 0; i < dssp.size(); i++) {
+        for (int j = i + 1; j < dssp.size(); j++) {
+            if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
+                swap(dssp[i], dssp[j]);
+            }
+        }
+    }
 }
 void sapXep(vector<Hanghoa>& dssp){
     int luachon;
