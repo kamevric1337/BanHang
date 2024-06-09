@@ -127,8 +127,11 @@ void timKiemTheoMaSanPham( vector<Hanghoa> san_pham){
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == ma_don_hang){
             san_pham[i].xuat();
+            return;//return ngay tai day
         }
     }
+    //neu khong tim thay thi thong bao
+    cout << "Khong tim thay san pham voi ma da nhap.\n";
 }
 void timKiemTheoTen( vector<Hanghoa> san_pham){
     string ten_san_pham;
@@ -137,8 +140,12 @@ void timKiemTheoTen( vector<Hanghoa> san_pham){
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layTenSanPham() == ten_san_pham){
             san_pham[i].xuat();
+            return;//return ngay tai day
         }
     }
+    //neu khong tim thay thi thong bao
+    cout << "Khong tim thay san pham voi ten da nhap.\n";
+
 }
 void giaoDienTimKiem( vector<Hanghoa> san_pham){
     int choice_;
