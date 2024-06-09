@@ -24,8 +24,17 @@ void themSanPham( vector<Hanghoa>& san_pham){
 void xoaSanPham(vector<Hanghoa>& san_pham){
     string ma_sp_xoa;
     cout << "Nhap ma san pham can xoa: ";
+    cin.ignore();
     getline(cin,ma_sp_xoa);
-    
+    //chuc nang xoa san pham
+    for (int i = 0; i < san_pham.size(); i++) {
+        if (san_pham[i].layMaDonHang() == ma_sp_xoa) {
+            san_pham.erase(san_pham.begin() + i);
+            cout << "San pham da duoc xoa.\n";
+            return;
+        }
+    }
+    cout << "Khong tim thay san pham voi ma da nhap.\n";
 }
 void sua_san_pham(vector<Hanghoa>& san_pham){
     string masp;
