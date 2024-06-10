@@ -47,8 +47,17 @@ void themSanPham( vector<Hanghoa>& san_pham){
 void xoaSanPham(vector<Hanghoa>& san_pham){
     string ma_sp_xoa;
     cout << "Nhap ma san pham can xoa: ";
+    cin.ignore();
     getline(cin,ma_sp_xoa);
-    
+    //chuc nang xoa san pham
+    for (int i = 0; i < san_pham.size(); i++) {
+        if (san_pham[i].layMaDonHang() == ma_sp_xoa) {
+            san_pham.erase(san_pham.begin() + i);
+            cout << "San pham da duoc xoa.\n";
+            return;
+        }
+    }
+    cout << "Khong tim thay san pham voi ma da nhap.\n";
 }
 void sua_san_pham(vector<Hanghoa>& san_pham){
     string masp;
@@ -101,7 +110,13 @@ void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){
     }
 }
 void sapXepTheoTen(vector<Hanghoa>& dssp){
-    
+    for (int i = 0; i < dssp.size(); i++) {
+        for (int j = i + 1; j < dssp.size(); j++) {
+            if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
+                swap(dssp[i], dssp[j]);
+            }
+        }
+    }
 }
 void sapXep(vector<Hanghoa>& dssp){
     int luachon;
@@ -135,8 +150,11 @@ void timKiemTheoMaSanPham( vector<Hanghoa> san_pham){
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == ma_don_hang){
             san_pham[i].xuat();
+            return;//return ngay tai day
         }
     }
+    //neu khong tim thay thi thong bao
+    cout << "Khong tim thay san pham voi ma da nhap.\n";
 }
 void timKiemTheoTen( vector<Hanghoa> san_pham){
     string ten_san_pham;
@@ -145,8 +163,12 @@ void timKiemTheoTen( vector<Hanghoa> san_pham){
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layTenSanPham() == ten_san_pham){
             san_pham[i].xuat();
+            return;//return ngay tai day
         }
     }
+    //neu khong tim thay thi thong bao
+    cout << "Khong tim thay san pham voi ten da nhap.\n";
+
 }
 void giaoDienTimKiem( vector<Hanghoa> san_pham){
     int choice_;
