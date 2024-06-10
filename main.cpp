@@ -6,6 +6,29 @@
 #include"GioHang.cpp"
 #define PASSWORD 20232024
 
+using namespace std;
+
+void inDanhSachSanPham(vector<Hanghoa>& san_pham);
+void themSanPham( vector<Hanghoa>& san_pham);
+void xoaSanPham(vector<Hanghoa>& san_pham);
+void sua_san_pham(vector<Hanghoa>& san_pham);
+void swap(Hanghoa a, Hanghoa b);
+void sapXepTheoGia(vector<Hanghoa>& dssp);
+void sapXepTheoMaSanPham(vector<Hanghoa>& dssp);
+void sapXepTheoTen(vector<Hanghoa>& dssp);
+void timKiemTheoMaSanPham(vector<Hanghoa> dssp);
+void timKiemTheoTen(vector<Hanghoa> dssp);
+void sapXep(vector<Hanghoa>& dssp);
+void giaoDienTimKiem( vector<Hanghoa> san_pham);
+void giaoDienChinhSua( vector<Hanghoa>& san_pham);
+void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
+void giaoDienChinh(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
+
+
+
+
+
+
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
     cout << "\n<-------Danh sach cac san pham dang bay ban: ------->";
