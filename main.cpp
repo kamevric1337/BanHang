@@ -145,16 +145,20 @@ void sapXep(vector<Hanghoa>& dssp){
 }
 void timKiemTheoMaSanPham( vector<Hanghoa> san_pham){
     string ma_don_hang;
+    bool isExist = false;
     cout << " Nhap ma don hang ban can tim kiem: ";
     getline(cin,ma_don_hang);
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == ma_don_hang){
             san_pham[i].xuat();
-            return;//return ngay tai day
+            isExist = true; // da tim thay san pham
+            break;
         }
     }
     //neu khong tim thay thi thong bao
-    cout << "Khong tim thay san pham voi ma da nhap.\n";
+    if(!isExist){
+        cout << "Khong tim thay san pham voi ma da nhap.\n";
+    }
 }
 void timKiemTheoTen( vector<Hanghoa> san_pham){
     string ten_san_pham;
