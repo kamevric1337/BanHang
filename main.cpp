@@ -339,7 +339,7 @@ do{
     }
 } while (choice != 4);
 }
-int dem_vec = 0;
+// int dem_vec = 0;
 // void Hanghoa::tim_kiem(){}
 void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
     ifstream file("/home/hoangtung/Documents/giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
@@ -360,11 +360,15 @@ void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
         iss >> temp.so_luong;
 
         san_pham.push_back(temp);
-        dem_vec++;
+        // dem_vec++;
     }
     file.close();
 }
 void /*Hanghoa::*/xuat_file(vector<Hanghoa> &san_pham){
+    ofstream file("/home/hoangtung/Documents/hanghoa.txt");
+    if (!file.is_open()) {
+        cout << "Không thể mở file!" << endl;
+    }
 
 }
 
@@ -393,9 +397,9 @@ int main()
     Hanghoa sanpham16("Peanut Butter","FB3101", 4500, 100);  danh_sach_san_pham.push_back(sanpham16);
     Hanghoa sanpham17("Pho Noodles","VF5101", 3500, 100);  danh_sach_san_pham.push_back(sanpham17);
 */
-    for (int i=0;i<dem_vec;i++) {
-        cout << "Ma San Pham: " << danh_sach_san_pham[i].layMaDonHang() << ", San Pham: " << danh_sach_san_pham[i].layTenSanPham()
-             << ", Gia Thanh: " << danh_sach_san_pham[i].layGiaThanh() << ", So Luong: " << danh_sach_san_pham[i].laySoLuong() << endl;
+    for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
+        cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
+             << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
     }
     // giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
     
