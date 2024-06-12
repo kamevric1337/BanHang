@@ -344,7 +344,7 @@ do{
 void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
     ifstream file("/home/hoangtung/Documents/giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
     if (!file.is_open()) {
-        cout << "Không thể mở file!" << endl;
+        cout << "Khong the mo file!" << endl;
     }
     string line;
     // int dem_vec = 0;
