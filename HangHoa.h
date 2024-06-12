@@ -34,7 +34,7 @@ class Hanghoa{
         // void tim_kiem();
         // void xuat_file();
         // void giao_dien_chinh_sua();
-
+        friend void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham);
         string layMaDonHang();
         string layTenSanPham();
         double layGiaThanh();
