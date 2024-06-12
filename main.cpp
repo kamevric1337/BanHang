@@ -339,7 +339,7 @@ do{
     }
 } while (choice != 4);
 }
-
+int dem_vec = 0;
 // void Hanghoa::tim_kiem(){}
 void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
     ifstream file("/home/hoangtung/Documents/giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
@@ -347,30 +347,33 @@ void /*Hanghoa::*/doc_file(vector<Hanghoa> &san_pham){
         cout << "Không thể mở file!" << endl;
     }
     string line;
-    int dem_vec = 0;
+    // int dem_vec = 0;
     // san_pham.size();
     while(getline(file,line)){
         istringstream iss(line);
-        getline(iss,san_pham[dem_vec].ma_san_pham,',');
-        getline(iss,san_pham[dem_vec].san_pham,',');
-        getline(iss,san_pham[dem_vec].san_pham,',');
-        iss >> san_pham[dem_vec].gia_thanh >> san_pham[dem_vec].so_luong ;
-        // string ten {};
-        // string ma {};
-        // double gia {};
-        // new Hanghoa a {ten , ma, gia};
-        san_pham.push_back(san_pham[dem_vec]);
+        Hanghoa temp;
+
+        getline(iss, temp.ma_san_pham, ',');
+        getline(iss, temp.san_pham, ',');
+        iss >> temp.gia_thanh;
+        iss.ignore(); 
+        iss >> temp.so_luong;
+
+        san_pham.push_back(temp);
         dem_vec++;
     }
+    file.close();
+}
+void /*Hanghoa::*/xuat_file(vector<Hanghoa> &san_pham){
+
 }
 
 int main()
 {
     GioHang quay_thanh_toan;
     vector<Hanghoa> danh_sach_san_pham;
-
-
-
+    doc_file(danh_sach_san_pham);
+/*
     // mot vai test sample
     Hanghoa sanpham1("caPheDen", "CPH0001", 5000, 100); danh_sach_san_pham.push_back(sanpham1);
     Hanghoa sanpham2("caPheNau", "CPH0002", 5000, 100);  danh_sach_san_pham.push_back(sanpham2);
@@ -389,9 +392,12 @@ int main()
     Hanghoa sanpham15("Instant Noodles","FB3301", 1500, 100);  danh_sach_san_pham.push_back(sanpham15);
     Hanghoa sanpham16("Peanut Butter","FB3101", 4500, 100);  danh_sach_san_pham.push_back(sanpham16);
     Hanghoa sanpham17("Pho Noodles","VF5101", 3500, 100);  danh_sach_san_pham.push_back(sanpham17);
-
-
-    giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
+*/
+    for (int i=0;i<dem_vec;i++) {
+        cout << "Ma San Pham: " << danh_sach_san_pham[i].layMaDonHang() << ", San Pham: " << danh_sach_san_pham[i].layTenSanPham()
+             << ", Gia Thanh: " << danh_sach_san_pham[i].layGiaThanh() << ", So Luong: " << danh_sach_san_pham[i].laySoLuong() << endl;
+    }
+    // giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
     
 
 }
