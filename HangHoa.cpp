@@ -58,8 +58,10 @@ void Hanghoa::nhap(){
     cout << "Nhap thong tin san pham: ";
     cout << "\nNhap ten san pham: ";
     getline(cin,san_pham);
+    cin.ignore();
     cout << "\nNhap ma san pham: ";
     getline(cin,ma_san_pham);
+    cin.ignore();
     cout << "\nNhap gia thanh san pham: ";
     cin >> gia_thanh;
     cout << "\nNhap so luong san pham: ";
@@ -69,3 +71,13 @@ void Hanghoa::xuat(){
     cout << " " << san_pham << "    " << ma_san_pham << "     " << gia_thanh << "VND     x" << so_luong <<  endl;
 }
 
+void Hanghoa::nhap_de_them_sp(){
+    cout << "Nhap thong tin san pham: ";
+    cout << "\nNhap ten san pham: ";
+    cin.ignore();
+    getline(cin,san_pham);
+    cout << "Nhap gia thanh san pham: ";
+    cin >> gia_thanh;
+    cout << "Nhap so luong san pham: ";
+    cin >> so_luong;
+}
