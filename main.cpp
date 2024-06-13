@@ -4,6 +4,7 @@
 #include <iomanip>
 #include"HangHoa.cpp"
 #include"GioHang.cpp"
+#include <algorithm>
 #define PASSWORD 2
 
 using namespace std;
@@ -23,10 +24,12 @@ void giaoDienTimKiem( vector<Hanghoa> san_pham);
 void giaoDienChinhSua( vector<Hanghoa>& san_pham);
 void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
 void giaoDienChinh(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
-
-
-
-
+bool operator > (Hanghoa a, Hanghoa b){
+    return a.gia_thanh > b.gia_thanh; 
+}
+Hanghoa Hanghoa ::operator = (Hanghoa a){
+    
+}
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
     cout << "\n<-------Danh sach cac san pham dang bay ban: ------->";
@@ -53,9 +56,10 @@ void xoaSanPham(vector<Hanghoa>& san_pham){
 nhan:
     string ma_sp_xoa;
     bool ktra = false;
-    cout << "Nhap ma san pham can xoa: ";
+    cout << "Nhap ma san pham can xoa (MDHxxxx): ";
     cin.ignore();
     getline(cin,ma_sp_xoa);
+    transform(ma_sp_xoa.begin(), ma_sp_xoa.end(), ma_sp_xoa.begin(), ::toupper);
     //chuc nang xoa san pham
     for (int i = 0; i < san_pham.size(); i++) {
         if (san_pham[i].layMaDonHang() == ma_sp_xoa) {
@@ -78,9 +82,11 @@ nhan:
 void sua_san_pham(vector<Hanghoa>& san_pham){
 nhan:
     string masp;
-    cout << "Nhap ma so cua san pham can sua:";
+    bool ktra = false;
+    cout << "Nhap ma so cua san pham can sua (MDHxxxx):";
     cin.ignore();
     getline(cin,masp);
+    transform(masp.begin(), masp.end(), masp.begin(), ::toupper);
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == masp){
         string ten;
@@ -101,7 +107,11 @@ nhan:
         // san_pham[i].setMasp(ma);
         san_pham[i].setGiasp(gia);
         san_pham[i].setSoLuong(soluong);
+        ktra = true;
         }
+    }
+    if(ktra == false){
+        cout << "Khong tim thay san pham voi ma da nhap!" << endl;
     }
     char lc;
     cout << "Ban co muon tiep tuc xoa khong (y/n) ?";
@@ -110,7 +120,7 @@ nhan:
         goto nhan;
     }
 }
-void swap(Hanghoa a, Hanghoa b){
+void swap(Hanghoa &a, Hanghoa& b){
     Hanghoa temp;
     temp = a;
     a = b;
@@ -119,7 +129,7 @@ void swap(Hanghoa a, Hanghoa b){
 void sapXepTheoGia(vector<Hanghoa>& dssp){
     for(int i=0;i<dssp.size();i++){
         for(int j = i+1;j<dssp.size();j++){
-            if(dssp[i].layGiaThanh() < dssp[j].layGiaThanh()){
+            if(dssp[i] > dssp[j]){
                 swap(dssp[i],dssp[j]);
             }
         }
@@ -135,13 +145,13 @@ void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){
     }
 }
 void sapXepTheoTen(vector<Hanghoa>& dssp){
-    for (int i = 0; i < dssp.size(); i++) {
-        for (int j = i + 1; j < dssp.size(); j++) {
-            if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
-                swap(dssp[i], dssp[j]);
-            }
-        }
-    }
+    // for (int i = 0; i < dssp.size(); i++) {
+    //     for (int j = i + 1; j < dssp.size(); j++) {
+    //         if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
+    //             swap(dssp[i], dssp[j]);
+    //         }
+    //     }
+    // }
 }
 void sapXep(vector<Hanghoa>& dssp){
     int luachon;
@@ -173,7 +183,7 @@ nhan:
     cin.ignore();
     string ma_don_hang;
     bool isExist = false;
-    cout << "Nhap ma don hang ban can tim kiem: ";
+    cout << "Nhap ma don hang ban can tim kiem (MDHxxxx): ";
     getline(cin,ma_don_hang);
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == ma_don_hang){
@@ -198,7 +208,7 @@ nhan:
     int count =0;
     cin.ignore();
     string ten_san_pham;
-    cout << "Nhap ten san pham ban muon tim: ";
+    cout << "Nhap ten san pham ban muon tim (MDHxxxx): ";
     getline(cin,ten_san_pham);
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layTenSanPham() == ten_san_pham){
@@ -428,26 +438,7 @@ int main()
     vector<Hanghoa> danh_sach_san_pham;
     doc_file(danh_sach_san_pham);
     giaoDienChinh(danh_sach_san_pham, quay_thanh_toan);
-/*
-    // mot vai test sample
-    Hanghoa sanpham1("caPheDen", "CPH0001", 5000, 100); danh_sach_san_pham.push_back(sanpham1);
-    Hanghoa sanpham2("caPheNau", "CPH0002", 5000, 100);  danh_sach_san_pham.push_back(sanpham2);
-    Hanghoa sanpham3("caPheSua", "CPH0003", 5000, 100);  danh_sach_san_pham.push_back(sanpham3);
-    Hanghoa sanpham4("caPheMuoi", "CPH0004", 7000, 100); danh_sach_san_pham.push_back(sanpham4);
-    Hanghoa sanpham5("caPheTrung", "CPH0005", 8000, 100);  danh_sach_san_pham.push_back(sanpham5);
-    Hanghoa sanpham6("Chocolate Bar","FB2101", 2000, 100);  danh_sach_san_pham.push_back(sanpham6);
-    Hanghoa sanpham7("Granola","FB2201", 5000, 100);  danh_sach_san_pham.push_back(sanpham7);
-    Hanghoa sanpham8("Greek Yogurt","FB2401", 3000, 100);  danh_sach_san_pham.push_back(sanpham8);
-    Hanghoa sanpham9("Pasta","FB2601", 4000, 100);  danh_sach_san_pham.push_back(sanpham9);
-    Hanghoa sanpham10("Canned Tuna","FB2801", 3500, 100);  danh_sach_san_pham.push_back(sanpham10);
-    Hanghoa sanpham11("Green Tea","FB3001", 6000, 100);  danh_sach_san_pham.push_back(sanpham11);
-    Hanghoa sanpham12("Olive Oil","FB2701", 15000, 100);  danh_sach_san_pham.push_back(sanpham12);
-    Hanghoa sanpham13("Coconut Milk","FB3901", 4500, 100);  danh_sach_san_pham.push_back(sanpham13);
-    Hanghoa sanpham14("Tomato Sauce","FB3701", 3000, 100);  danh_sach_san_pham.push_back(sanpham14);
-    Hanghoa sanpham15("Instant Noodles","FB3301", 1500, 100);  danh_sach_san_pham.push_back(sanpham15);
-    Hanghoa sanpham16("Peanut Butter","FB3101", 4500, 100);  danh_sach_san_pham.push_back(sanpham16);
-    Hanghoa sanpham17("Pho Noodles","VF5101", 3500, 100);  danh_sach_san_pham.push_back(sanpham17);
-*/
+
     for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
         cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
              << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
