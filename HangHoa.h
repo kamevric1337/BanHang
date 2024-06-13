@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include<string>
 #include<vector>
 #include<iostream>
@@ -31,7 +32,6 @@ class Hanghoa{
         void setGiasp(double gia);
         void setSoLuong(int soLuong);
         // void xoa_san_pham();
-
         // void tim_kiem();
         // void xuat_file();
         // void giao_dien_chinh_sua();
@@ -42,4 +42,7 @@ class Hanghoa{
         double layGiaThanh();
         int laySoLuong();
         friend void themSanPham( vector<Hanghoa>& san_pham);
+        friend bool sapXepTheoGia(const Hanghoa& a, const Hanghoa& b) ;
+        friend bool operator > (Hanghoa a, Hanghoa b);
+        Hanghoa operator = (Hanghoa a);
 };
