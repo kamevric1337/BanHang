@@ -30,7 +30,7 @@ class Hanghoa{
         void setGiasp(double gia);
         void setSoLuong(int soLuong);
         // void xoa_san_pham();
-        void suaSanPham(vector<Hanghoa>&);
+
         // void tim_kiem();
         // void xuat_file();
         // void giao_dien_chinh_sua();
