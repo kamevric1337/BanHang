@@ -24,6 +24,7 @@ class Hanghoa{
         // void giao_dien_chinh();
         // void them_san_pham();
         void nhap();
+        void nhap_de_them_sp();
         void xuat();
         void setTensp(string tensp);
         void setMasp(string ma);
@@ -40,4 +41,5 @@ class Hanghoa{
         string layTenSanPham();
         double layGiaThanh();
         int laySoLuong();
+        friend void themSanPham( vector<Hanghoa>& san_pham);
 };
