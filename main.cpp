@@ -4,7 +4,7 @@
 #include <iomanip>
 #include"HangHoa.cpp"
 #include"GioHang.cpp"
-#define PASSWORD 20232024
+#define PASSWORD 2
 
 using namespace std;
 
@@ -27,8 +27,6 @@ void giaoDienChinh(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
 
 
 
-
-
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
     cout << "\n<-------Danh sach cac san pham dang bay ban: ------->";
@@ -38,14 +36,23 @@ void inDanhSachSanPham(vector<Hanghoa>& san_pham)
         san_pham[i].xuat();
     }
 }
-
 void themSanPham( vector<Hanghoa>& san_pham){
+nhan:
     Hanghoa new_item;
-    new_item.nhap();
+    new_item.nhap_de_them_sp();
+    new_item.ma_san_pham = "MDH"+string(4-to_string(san_pham.size()+1).length(),'0')+ to_string(san_pham.size()+1);
     san_pham.push_back(new_item);
+    char lc;
+    cout << "Ban co muon tiep tuc xoa khong (y/n) ?";
+    cin >> lc;
+    if(lc == 'y'){
+        goto nhan;
+    }
 }
 void xoaSanPham(vector<Hanghoa>& san_pham){
+nhan:
     string ma_sp_xoa;
+    bool ktra = false;
     cout << "Nhap ma san pham can xoa: ";
     cin.ignore();
     getline(cin,ma_sp_xoa);
@@ -53,15 +60,26 @@ void xoaSanPham(vector<Hanghoa>& san_pham){
     for (int i = 0; i < san_pham.size(); i++) {
         if (san_pham[i].layMaDonHang() == ma_sp_xoa) {
             san_pham.erase(san_pham.begin() + i);
-            cout << "San pham da duoc xoa.\n";
-            return;
+            cout << "San pham da duoc xoa" << endl;
+            ktra = true;
+            break;
         }
     }
-    cout << "Khong tim thay san pham voi ma da nhap.\n";
+    if(ktra == false){
+        cout << "Khong tim thay san pham voi ma da nhap!" << endl;
+    }
+    char lc;
+    cout << "Ban co muon tiep tuc xoa khong (y/n) ?";
+    cin >> lc;
+    if(lc == 'y'){
+        goto nhan;
+    }
 }
 void sua_san_pham(vector<Hanghoa>& san_pham){
+nhan:
     string masp;
-    cout << "nhap ma so cua san pham can sua:";
+    cout << "Nhap ma so cua san pham can sua:";
+    cin.ignore();
     getline(cin,masp);
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layMaDonHang() == masp){
@@ -69,20 +87,27 @@ void sua_san_pham(vector<Hanghoa>& san_pham){
         string ma;
         double gia;
         int soluong;
-         cout << "Nhap thong tin san pham moi: ";
+        cout << "Nhap thong tin san pham moi: ";
         cout << "\nNhap ten san pham moi: ";
+        // cin.ignore();
         getline(cin,ten);
-        cout << "\nNhap ma san pham moi: ";
-        getline(cin,ma);
-        cout << "\nNhap gia thanh san pham moi: ";
+        // cout << "\nNhap ma san pham moi: ";
+        // getline(cin,ma);
+        cout << "Nhap gia thanh san pham moi: ";
         cin >> gia;
-        cout << "\nNhap so luong san pham: ";
+        cout << "Nhap so luong san pham: ";
         cin >> soluong;
         san_pham[i].setTensp(ten);
-        san_pham[i].setMasp(ma);
+        // san_pham[i].setMasp(ma);
         san_pham[i].setGiasp(gia);
         san_pham[i].setSoLuong(soluong);
         }
+    }
+    char lc;
+    cout << "Ban co muon tiep tuc xoa khong (y/n) ?";
+    cin >> lc;
+    if(lc == 'y'){
+        goto nhan;
     }
 }
 void swap(Hanghoa a, Hanghoa b){
@@ -423,10 +448,10 @@ int main()
     Hanghoa sanpham16("Peanut Butter","FB3101", 4500, 100);  danh_sach_san_pham.push_back(sanpham16);
     Hanghoa sanpham17("Pho Noodles","VF5101", 3500, 100);  danh_sach_san_pham.push_back(sanpham17);
 */
-    // for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
-    //     cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
-    //          << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
-    // }
+    for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
+        cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
+             << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
+    }
     // giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
     
 
