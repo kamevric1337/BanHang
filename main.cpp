@@ -13,7 +13,7 @@ void inDanhSachSanPham(vector<Hanghoa>& san_pham);
 void themSanPham( vector<Hanghoa>& san_pham);
 void xoaSanPham(vector<Hanghoa>& san_pham);
 void sua_san_pham(vector<Hanghoa>& san_pham);
-void swap(Hanghoa a, Hanghoa b);
+// void swap(Hanghoa a, Hanghoa b);
 void sapXepTheoGia(vector<Hanghoa>& dssp);
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp);
 void sapXepTheoTen(vector<Hanghoa>& dssp);
@@ -28,7 +28,13 @@ bool operator > (Hanghoa a, Hanghoa b){
     return a.gia_thanh > b.gia_thanh; 
 }
 Hanghoa Hanghoa ::operator = (Hanghoa a){
-    
+    if(this != &a){
+        san_pham=a.san_pham;
+        gia_thanh=a.gia_thanh;
+        ma_san_pham=a.ma_san_pham;
+        so_luong=a.so_luong; 
+    }
+    return *this;
 }
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
@@ -134,24 +140,28 @@ void sapXepTheoGia(vector<Hanghoa>& dssp){
             }
         }
     }
-}
+    // sort(dssp.begin(),dssp.end(),[]( Hanghoa&a, Hanghoa&b){
+    //     return a.layGiaThanh()<b.layGiaThanh();
+    // });
+     }
+
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){
-    for(int i=0;i<dssp.size();i++){
-        for(int j = i+1;j<dssp.size();j++){
-            if(dssp[i].layMaDonHang() < dssp[j].layMaDonHang()){
-                swap(dssp[i],dssp[j]);
-            }
-        }
-    }
-}
-void sapXepTheoTen(vector<Hanghoa>& dssp){
-    // for (int i = 0; i < dssp.size(); i++) {
-    //     for (int j = i + 1; j < dssp.size(); j++) {
-    //         if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
-    //             swap(dssp[i], dssp[j]);
+    // for(int i=0;i<dssp.size();i++){
+    //     for(int j = i+1;j<dssp.size();j++){
+    //         if(dssp[i].layMaDonHang() < dssp[j].layMaDonHang()){
+    //             swap(dssp[i],dssp[j]);
     //         }
     //     }
     // }
+}
+void sapXepTheoTen(vector<Hanghoa>& dssp){
+    for (int i = 0; i < dssp.size(); i++) {
+        for (int j = i + 1; j < dssp.size(); j++) {
+            if (dssp[i].layTenSanPham() > dssp[j].layTenSanPham()) {
+                swap(dssp[i], dssp[j]);
+            }
+        }
+    }
 }
 void sapXep(vector<Hanghoa>& dssp){
     int luachon;
@@ -160,7 +170,7 @@ void sapXep(vector<Hanghoa>& dssp){
     cout << "|__________________________________________________________________|" << endl;
     cout << "|                                                                  |" << endl;
     cout << "|  1.  Sap xep theo gia                                            |" << endl;
-    cout << "|  2.  Sap xep theo ma san pham                                    |" << endl;
+    // cout << "|  2.  Sap xep theo ma san pham                                    |" << endl;
     cout << "|  2.  Sap xep theo ten san pham                                   |" << endl;
     cout << "|  3.  Quay lai trang chu                                          |" << endl;
     cout << "|*________________________________________________________________*|" << endl;
@@ -170,11 +180,13 @@ void sapXep(vector<Hanghoa>& dssp){
         case(1):
             sapXepTheoGia(dssp);
             break;
+        // case(2):
+        //     sapXepTheoMaSanPham(dssp);
+        //     break;
         case(2):
-            sapXepTheoMaSanPham(dssp);
+            sapXepTheoTen(dssp);
             break;
         case(3):
-            sapXepTheoTen(dssp);
             break;
     }
 }
@@ -359,7 +371,8 @@ do{
     cout << "|  2.  Xuat hoa don mua hang                                       |" << endl;
     cout << "|  3.  Quyen chinh sua                                             |" << endl;
     cout << "|  4.  Thanh toan                                                  |" << endl;
-    cout << "|  5.  Thoat                                                       |" << endl;
+    cout << "|  5.  Sap xep                                                     |" << endl;
+    cout << "|  6.  Thoat                                                       |" << endl;
     cout << "|*________________________________________________________________*|" << endl;
     cout << "                                                                    " << endl;
     cout << "Nhap lua chon cua ban [1-5]: ";
@@ -389,7 +402,10 @@ do{
         case(4): 
             giaoDienThanhToan(san_pham, quay_thanh_toan);
             break;
-        case(5):
+        case(5): 
+            sapXep(san_pham);
+            break;
+        case(6):
             cout <<"Cam on ban da su dung chuong trinh !";
             break;
         // default:
@@ -402,7 +418,7 @@ do{
 // int dem_vec = 0;
 
 void doc_file(vector<Hanghoa> &san_pham){
-    ifstream file("/home/hoangtung/Documents/giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
+    ifstream file("C:\\Users\\Admin\\Desktop\\giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
     if (!file.is_open()) {
         cout << "Khong the mo file!" << endl;
     }
@@ -443,6 +459,7 @@ int main()
         cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
              << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
     }
+    
     // giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
     
 
