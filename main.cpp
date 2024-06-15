@@ -145,7 +145,7 @@ void sapXepTheoGia(vector<Hanghoa>& dssp){
     // });
      }
 
-void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){
+void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){ // chương trình tự sắp xếp theo mã sẵn rồi nên cái này thừa
     // for(int i=0;i<dssp.size();i++){
     //     for(int j = i+1;j<dssp.size();j++){
     //         if(dssp[i].layMaDonHang() < dssp[j].layMaDonHang()){
