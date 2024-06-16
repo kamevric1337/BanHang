@@ -4,7 +4,7 @@
 #include<string>
 #include"GioHang.h"
 
-GioHang::GioHang(): tienThanhToan(0), soLuongHang(0){}
+GioHang::GioHang(): tienThanhToan(0), soLuongHang(0), phanTramGiamGia(0){}
 
 void GioHang::capNhatTienThanhToan()
 {
@@ -47,9 +47,25 @@ double GioHang::layTienThanhToan()
     return this->tienThanhToan;
 }
 
+int GioHang::laySoLuongHang()
+{
+    return this->gioHang.size();
+}
+double GioHang::layPhanTramGiamGia()
+{
+    return this->phanTramGiamGia;
+}
+
 void GioHang::apMaGiamGia(double phanTram)
 {
+    this->phanTramGiamGia = phanTram;
     this->tienThanhToan *= (1 - phanTram/100);
+}
+
+void GioHang::thanhToan()
+{
+    this->inGioHang();
+    cout << "\nSo tien phai tra la: " << this->layTienThanhToan() << " VND\n";
 }
 
 GioHang::~GioHang()

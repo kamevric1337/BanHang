@@ -338,8 +338,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
         cout << "\nNhap ti le giam gia: ";
         cin >> phanTram;
         quay_thanh_toan.apMaGiamGia(phanTram);
-        quay_thanh_toan.inGioHang();
-        cout << "\nSo tien phai tra la: " << quay_thanh_toan.layTienThanhToan() << " VND";
+        quay_thanh_toan.thanhToan();
         break;
     case 4:
         break;
