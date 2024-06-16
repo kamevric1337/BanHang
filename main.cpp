@@ -24,6 +24,8 @@ void giaoDienTimKiem( vector<Hanghoa> san_pham);
 void giaoDienChinhSua( vector<Hanghoa>& san_pham);
 void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
 void giaoDienChinh(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
+void doc_file(vector<Hanghoa> &san_pham);
+void xuat_file(vector<Hanghoa> &san_pham);
 
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
