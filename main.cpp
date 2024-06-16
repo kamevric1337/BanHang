@@ -140,9 +140,7 @@ void sapXepTheoGia(vector<Hanghoa>& dssp){
             }
         }
     }
-    // sort(dssp.begin(),dssp.end(),[]( Hanghoa&a, Hanghoa&b){
-    //     return a.layGiaThanh()<b.layGiaThanh();
-    // });
+        inDanhSachSanPham(dssp);
      }
 
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){ // chương trình tự sắp xếp theo mã sẵn rồi nên cái này thừa
@@ -162,6 +160,8 @@ void sapXepTheoTen(vector<Hanghoa>& dssp){
             }
         }
     }
+            inDanhSachSanPham(dssp);
+
 }
 void sapXep(vector<Hanghoa>& dssp){
     int luachon;
@@ -375,7 +375,7 @@ do{
     cout << "|  6.  Thoat                                                       |" << endl;
     cout << "|*________________________________________________________________*|" << endl;
     cout << "                                                                    " << endl;
-    cout << "Nhap lua chon cua ban [1-5]: ";
+    cout << "Nhap lua chon cua ban [1-6]: ";
     cin >> choice;
     switch(choice){
         case(1):
@@ -413,7 +413,7 @@ do{
         //     break;
     }
     break;
-} while (choice != 4);
+} while (choice !=6);
 }
 // int dem_vec = 0;
 
@@ -455,10 +455,10 @@ int main()
     doc_file(danh_sach_san_pham);
     giaoDienChinh(danh_sach_san_pham, quay_thanh_toan);
 
-    for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
-        cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
-             << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
-    }
+    // for(vector<Hanghoa> :: iterator x = danh_sach_san_pham.begin();x!= danh_sach_san_pham.end();x++){
+    //     cout << "Ma San Pham: " << x->layMaDonHang()<< ", San Pham: " << x->layTenSanPham()
+    //          << ", Gia Thanh: " << x->layGiaThanh() << ", So Luong: " << x->laySoLuong() << endl;
+    // }
     
     // giaoDienChinh(danh_sach_san_pham, quay_thanh_toan); 
     
