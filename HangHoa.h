@@ -14,7 +14,6 @@ class Hanghoa{
         string san_pham;
         string ma_san_pham;
         double gia_thanh;
-
         int so_luong;
 
     public:
@@ -42,7 +41,7 @@ class Hanghoa{
         double layGiaThanh();
         int laySoLuong();
         friend void themSanPham( vector<Hanghoa>& san_pham);
-        friend bool sapXepTheoGia(const Hanghoa& a, const Hanghoa& b) ;
-        friend bool operator > (Hanghoa a, Hanghoa b);
-        Hanghoa operator = (Hanghoa a);
+        //friend bool sapXepTheoGia(const Hanghoa& a, const Hanghoa& b) ;
+        bool operator> (const Hanghoa& other);
+        Hanghoa operator = (const Hanghoa& other);
 };

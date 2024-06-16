@@ -81,3 +81,17 @@ void Hanghoa::nhap_de_them_sp(){
     cout << "Nhap so luong san pham: ";
     cin >> so_luong;
 }
+Hanghoa Hanghoa::operator= (const Hanghoa& a){
+    if(this != &a){
+        san_pham=a.san_pham;
+        gia_thanh=a.gia_thanh;
+        ma_san_pham=a.ma_san_pham;
+        so_luong=a.so_luong; 
+    }
+    return *this;
+}
+
+bool Hanghoa::operator>(const Hanghoa& other)
+{
+    return this->gia_thanh > other.gia_thanh;
+}

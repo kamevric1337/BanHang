@@ -13,7 +13,7 @@ void inDanhSachSanPham(vector<Hanghoa>& san_pham);
 void themSanPham( vector<Hanghoa>& san_pham);
 void xoaSanPham(vector<Hanghoa>& san_pham);
 void sua_san_pham(vector<Hanghoa>& san_pham);
-// void swap(Hanghoa a, Hanghoa b);
+void swap(Hanghoa &a, Hanghoa &b);
 void sapXepTheoGia(vector<Hanghoa>& dssp);
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp);
 void sapXepTheoTen(vector<Hanghoa>& dssp);
@@ -25,19 +25,6 @@ void giaoDienChinhSua( vector<Hanghoa>& san_pham);
 void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
 void giaoDienChinh(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan);
 
-
-bool operator > (Hanghoa a, Hanghoa b){
-    return a.gia_thanh > b.gia_thanh; 
-}
-Hanghoa Hanghoa ::operator = (Hanghoa a){
-    if(this != &a){
-        san_pham=a.san_pham;
-        gia_thanh=a.gia_thanh;
-        ma_san_pham=a.ma_san_pham;
-        so_luong=a.so_luong; 
-    }
-    return *this;
-}
 void inDanhSachSanPham(vector<Hanghoa>& san_pham)
 {
     cout << "\n<-------Danh sach cac san pham dang bay ban: -------> \n";
@@ -145,7 +132,7 @@ void sapXepTheoGia(vector<Hanghoa>& dssp){
     // sort(dssp.begin(),dssp.end(),[]( Hanghoa&a, Hanghoa&b){
     //     return a.layGiaThanh()<b.layGiaThanh();
     // });
-    }
+}
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){ // chương trình tự sắp xếp theo mã sẵn rồi nên cái này thừa
     // for(int i=0;i<dssp.size();i++){
     //     for(int j = i+1;j<dssp.size();j++){
@@ -466,6 +453,8 @@ int main()
 {
     GioHang quay_thanh_toan;
     vector<Hanghoa> danh_sach_san_pham;
+
     doc_file(danh_sach_san_pham);
     giaoDienChinh(danh_sach_san_pham, quay_thanh_toan);
+  
 }
