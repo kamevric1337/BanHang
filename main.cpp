@@ -131,9 +131,7 @@ void sapXepTheoGia(vector<Hanghoa>& dssp){
             }
         }
     }
-    // sort(dssp.begin(),dssp.end(),[]( Hanghoa&a, Hanghoa&b){
-    //     return a.layGiaThanh()<b.layGiaThanh();
-    // });
+    
 }
 void sapXepTheoMaSanPham(vector<Hanghoa>& dssp){ // chương trình tự sắp xếp theo mã sẵn rồi nên cái này thừa
     // for(int i=0;i<dssp.size();i++){
@@ -170,9 +168,6 @@ void sapXep(vector<Hanghoa>& dssp){
         case(1):
             sapXepTheoGia(dssp);
             break;
-        // case(2):
-        //     sapXepTheoMaSanPham(dssp);
-        //     break;
         case(2):
             sapXepTheoTen(dssp);
             break;
@@ -233,7 +228,7 @@ nhan:
 void giaoDienTimKiem( vector<Hanghoa> san_pham){
     // cin.ignore();
     int choice_;
-    system("clear");
+    
     cout << " __________________________________________________________________" << endl;
     cout << "|                             TIM KIEM                             |" << endl;
     cout << "|__________________________________________________________________|" << endl;
@@ -257,7 +252,7 @@ void giaoDienTimKiem( vector<Hanghoa> san_pham){
     }
 }
 void giaoDienChinhSua( vector<Hanghoa>& san_pham){
-    // system("clear"); 
+    //  
     int _choice;
     cout << " __________________________________________________________________" << endl;
     cout << "|                         QUYEN CHINH SUA                          |" << endl;
@@ -272,7 +267,7 @@ void giaoDienChinhSua( vector<Hanghoa>& san_pham){
         cin >> _choice;
         switch (_choice){
             case (1):
-                // system("clear");
+                // 
                 themSanPham(san_pham);
                 break;
             case (2):
@@ -297,7 +292,7 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
     int STT_them = -1;
     int so_luong = 1;
 
-    system("clear");
+    
     quay_thanh_toan.inGioHang();
     cout << "\n";
     cout << " __________________________________________________________________" << endl;
@@ -349,13 +344,13 @@ void giaoDienThanhToan(vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan)
 void giaoDienChinh( vector<Hanghoa>& san_pham, GioHang& quay_thanh_toan){
     int choice;
 do{
-    // system("clear"); 
+    //  
     cout << " __________________________________________________________________" << endl;
     cout << "|                      QUAN LI CUA HANG MINI                       |" << endl;
     cout << "|__________________________________________________________________|" << endl;
     cout << "|                                                                  |" << endl;
     cout << "|  1.  Tim kiem san pham                                           |" << endl;
-    cout << "|  2.  Xuat hoa don mua hang                                       |" << endl;
+    cout << "|  2.  Xuat san pham trong kho                                     |" << endl;
     cout << "|  3.  Quyen chinh sua                                             |" << endl;
     cout << "|  4.  Thanh toan                                                  |" << endl;
     cout << "|  5.  Sap xep                                                     |" << endl;
@@ -368,16 +363,16 @@ do{
     switch(choice){
         case(1):
             // cout <<"chay dc" << endl;
-            system("clear");
+            
             giaoDienTimKiem(san_pham);
             break;
         case(2):
-            system("clear");
+            
             xuat_file(san_pham);
             cout << "Xuat danh sach san pham thanh cong! \n";
             break;
         case(3):
-            system("clear");
+            
             int mat_khau;
             cout << "Nhap mat khau de truy cap: ";
             cin >> mat_khau;
@@ -391,25 +386,25 @@ do{
                 break;
             }
         case(4): 
-            system("clear");
+            
             giaoDienThanhToan(san_pham, quay_thanh_toan);
             break;
         case(5): 
-            system("clear");
+            
             sapXep(san_pham);
             cout << "Sap xep thanh cong! \n";
             break;
         case(6): 
-            system("clear");
-            cout << "Shop gui quy khach danh sach san pham hien co :33\n";
+            
+            cout << "Shop gui quy khach danh sach san pham hien co :\n";
             inDanhSachSanPham(san_pham);
             break;
         case(7):
-            system("clear");
+            
             cout <<"Cam on ban da su dung chuong trinh !";
             exit(0);
         default:
-            system("clear");
+            
             cout << "Lua chon cua ban chua hop le, vui long chon lai !" << endl;
             break;
     }
@@ -418,7 +413,7 @@ do{
 }
 void doc_file(vector<Hanghoa> &san_pham){
     // /home/hoangtung/Documents/giay.txt
-    ifstream file("/home/hoangtung/Documents/giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
+    ifstream file("C:\\Users\\WINDOWS\\OneDrive - Hanoi University of Science and Technology\\Desktop\\giay.txt");// thay doi duong dan trong window nhu sau: E:\\ .....
     if (!file.is_open()) {
         cout << "Khong the mo file!" << endl;
     }
@@ -440,7 +435,7 @@ void doc_file(vector<Hanghoa> &san_pham){
     file.close();
 }
 void xuat_file(vector<Hanghoa> &san_pham){
-    ofstream file("/home/hoangtung/Documents/hanghoa.txt");
+    ofstream file("C:\\Users\\WINDOWS\\OneDrive - Hanoi University of Science and Technology\\Desktop\\xuat hoa don.txt");
     if (!file.is_open()) {
         cout << "Không thể mở file!" << endl;
     }
