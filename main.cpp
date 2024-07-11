@@ -207,7 +207,7 @@ nhan:
 }
 void timKiemTheoTen( vector<Hanghoa> san_pham){
 nhan:
-    int count =0;
+    bool isExist = false;
     cin.ignore();
     string ten_san_pham;
     cout << "Nhap ten san pham ban muon tim: ";
@@ -215,12 +215,12 @@ nhan:
     for(int i = 0; i < san_pham.size(); i++){
         if(san_pham[i].layTenSanPham() == ten_san_pham){
             san_pham[i].xuat();
-            count++;
+            isExist = true; 
             break;
         }
     }
     //neu khong tim thay thi thong bao
-    if(count == 0){
+    if(!isExist){
         cout << "Khong tim thay san pham voi ten da nhap\n";
     }
     char lc;
